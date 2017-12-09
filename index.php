@@ -19,7 +19,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
 $categories = getCategories();
 
 //this is for the dynamic navigation
-$navList = dynamicNavigation();
+//$navList = dynamicNavigation();
 
 //============================================================================
 

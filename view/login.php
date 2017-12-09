@@ -5,6 +5,8 @@ include_once $_SERVER['DOCUMENT_ROOT']."/acme/common/base-variables-functions.ph
 $directoryName = 'accounts';
 $pageTitle = 'Login to ACME';
 $pageDescription = "Login to your ACME account.";
+
+
 ?>
 
 <!DOCTYPE html>
