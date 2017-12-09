@@ -1,0 +1,15 @@
+.form-error {
+  border: 2px solid $red;
+  border-radius: 3px;
+  color: $red;
+  max-width: 300px;
+  padding: 25px;
+}
+
+.success-message {
+  border: 2px solid $green;
+  border-radius: 3px;
+  color: $green;
+  max-width: 300px;
+  padding: 25px;
+}

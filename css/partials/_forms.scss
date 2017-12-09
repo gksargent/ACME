@@ -1,0 +1,66 @@
+.stacked-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+
+  label {
+    color: #707070;
+    font-size: 15px;
+    margin: 10px 0 0 0;
+  }
+
+  // input, textarea, select, input:required, textarea:required {
+  //   color: $form-input-color;
+  //   font-size: 15px;
+  //   margin: 5px 0 10px 0;
+  //   min-height: 25px;
+  //   padding: 5px;
+  //   background-color: $white;
+  //   border: solid 1px lighten($gray, 20%);
+  //   border-radius: 5px;
+  //   transition: all 250ms ease;
+  // }
+
+  input:focus, textarea:focus, select:focus {
+    border: solid 1px lighten($blue, 30%) !important;
+    outline: none;
+    outline-offset: 0px;
+
+  }
+
+  select {
+    height: 35px;
+  }
+
+  textarea {
+    color: lighten($gray, 20%);
+  }
+
+  // input:required:invalid, input:focus:invalid, textarea:required:invalid, textarea:focus:invalid, select:required:invalid {
+  //   border-color: $red;
+  //   background-image: url(/acme/images/site/exclamation-circle.svg);
+  //   background-position: right 12px bottom 10px;
+  //   background-repeat: no-repeat;
+  //   background-size: 15px;
+  //   padding-right: 30px;
+  // }
+  //
+  // input:required:valid, textarea:required:valid, select:required:valid {
+  //   border-color: lighten($gray, 20%);
+  //   background-image: url(/acme/images/site/check-circle.svg);
+  //   background-position: right 12px bottom 10px;
+  //   background-repeat: no-repeat;
+  //   background-size: 15px;
+  //   padding-right: 30px;
+  // }
+
+}
+
+.centered-form {
+  margin: 0 auto;
+}
+
+.input-help-text {
+  font-size: 14px;
+  margin-bottom: 20px;
+}

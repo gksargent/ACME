@@ -1,0 +1,9 @@
+.account-link {
+  color: $black;
+  text-decoration: none;
+
+  :visited {
+    color: $black;
+    text-decoration: none;
+  }
+}

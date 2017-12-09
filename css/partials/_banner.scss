@@ -1,0 +1,22 @@
+#banner {
+  background-color: blue;
+  background-image: url('/acme/images/site/rocketfeature.jpg');
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $maroon;
+  height: 50vw;
+  margin: 0 -5px 0 -5px;
+  max-height: 300px;
+
+  .banner-text-right {
+    float: right;
+    margin: 15px 25px 0 0;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.button {
+  background-color: $yellow !important;
+  border: 1px solid lighten($black, 70) !important;
+  border-radius: 5px !important;
+  color: $black !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px !important;
+  margin-top: 5px !important;
+  padding: 5px 25px !important;
+  text-decoration: none;
+}

@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css?family=Stardos+Stencil");
+@import url("https://fonts.googleapis.com/css?family=Boogaloo");
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Stardos Stencil", cursive;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Boogaloo", cursive; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  background-attachment: fixed;
+  background-color: #F6EF88;
+  background-image: url("/acme/images/site/background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0 20px; }
+
+#container {
+  background-color: #ffffff;
+  margin: 0 auto 50px auto;
+  max-width: 720px; }
+
+main {
+  padding: 10px; }
+
+hr {
+  margin: 50px 0;
+  border: 1px solid #e0e0e0; }
+
+.button {
+  background-color: #F6EF88 !important;
+  border: 1px solid #b3b3b3 !important;
+  border-radius: 5px !important;
+  color: #000000 !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px !important;
+  margin-top: 5px !important;
+  padding: 5px 25px !important;
+  text-decoration: none; }
+
+header #header-top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  padding: 10px; }
+  header #header-top img {
+    width: 155px;
+    height: 62px; }
+  header #header-top .account-link, header #header-top .logout-link {
+    color: #000000;
+    justify-content: flex-end;
+    text-decoration: none; }
+header nav {
+  align-items: flex-end;
+  background-color: #de2226;
+  display: flex;
+  font-size: 22px;
+  height: 50px;
+  padding: 5px 5px 0 5px; }
+  header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  header nav li {
+    display: inline-block;
+    height: 36px; }
+  header nav a, header nav a:visited {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 10px 10px;
+    text-decoration: none; }
+  header nav a:hover, header nav a:active {
+    background-color: #ffffff;
+    color: #de2226; }
+
+.account-link::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  background-image: url("/acme/images/site/account.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 16px;
+  margin-left: -30px;
+  margin-top: 3px;
+  width: 23px; }
+
+footer {
+  border-top: 3px solid #000000;
+  margin: 10px;
+  padding: 3px 0;
+  text-align: center; }
+  footer p {
+    margin: 0; }
+
+#banner {
+  background-color: blue;
+  background-image: url("/acme/images/site/rocketfeature.jpg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #990033;
+  height: 50vw;
+  margin: 0 -5px 0 -5px;
+  max-height: 300px; }
+  #banner .banner-text-right {
+    float: right;
+    margin: 15px 25px 0 0; }
+    #banner .banner-text-right ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0; }
+
+.account-link {
+  color: #000000;
+  text-decoration: none; }
+  .account-link :visited {
+    color: #000000;
+    text-decoration: none; }
+
+.stacked-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; }
+  .stacked-form label {
+    color: #707070;
+    font-size: 15px;
+    margin: 10px 0 0 0; }
+  .stacked-form input:focus, .stacked-form textarea:focus, .stacked-form select:focus {
+    border: solid 1px #8888ff !important;
+    outline: none;
+    outline-offset: 0px; }
+  .stacked-form select {
+    height: 35px; }
+  .stacked-form textarea {
+    color: #b3b3b3; }
+
+.centered-form {
+  margin: 0 auto; }
+
+.input-help-text {
+  font-size: 14px;
+  margin-bottom: 20px; }
+
+.form-error {
+  border: 2px solid #de2226;
+  border-radius: 3px;
+  color: #de2226;
+  max-width: 300px;
+  padding: 25px; }
+
+.success-message {
+  border: 2px solid #3CB371;
+  border-radius: 3px;
+  color: #3CB371;
+  max-width: 300px;
+  padding: 25px; }
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+thead tr th {
+  border-bottom: 1px solid #e0e0e0;
+  border-collapse: collapse;
+  text-align: left; }
+
+td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 15px; }
+  td a {
+    border-radius: 2px;
+    color: #333;
+    font-size: .75em;
+    padding: 6px 7px 4px 7px;
+    text-decoration: none;
+    transition: all ease 250ms; }
+  td a:hover {
+    background-color: #333;
+    color: white; }
+
+tr:hover {
+  background-color: whitesmoke;
+  transition: all ease 300ms;
+  transition-delay: 25ms; }
+
+thead tr:hover {
+  background-color: white; }
+
+#product-display {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%; }
+  #product-display a, #product-display a:visited {
+    color: #000000;
+    text-decoration: none;
+    width: 100%; }
+  #product-display li {
+    overflow: hidden;
+    padding: 0 0 10px 0;
+    margin: 10px 10px 35px 10px;
+    max-height: 400px;
+    max-width: 200px;
+    min-width: 30%;
+    text-align: center;
+    transition: 250ms ease all; }
+    #product-display li .product-image-container {
+      display: flex;
+      height: 200px;
+      overflow: hidden;
+      padding: 15px;
+      width: 100%; }
+      #product-display li .product-image-container img {
+        align-self: center;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+        transition: 250ms ease-out all; }
+    #product-display li h2 {
+      font-size: 15px;
+      line-height: 17px;
+      font-family: "Boogaloo", cursive;
+      font-weight: normal; }
+    #product-display li span {
+      font-size: 15px; }
+  #product-display li:hover {
+    background-color: whitesmoke; }
+  #product-display li:hover img {
+    transform: scale(1.03); }
+  #product-display hr {
+    margin: 5px 0; }
+
+#product-details-container {
+  display: flex; }
+
+#product-details-content-left {
+  padding: 0 25px 0 0;
+  margin: 0;
+  max-width: 50%; }
+  #product-details-content-left h2 {
+    font-size: 17px; }
+
+#product-details-content-right {
+  padding: 0;
+  margin: 0;
+  max-width: 50%; }
+  #product-details-content-right .product-details-image {
+    width: 100%; }
+
+.product-details-price {
+  color: #de2226;
+  font-size: 20px;
+  padding: 0;
+  margin: 0 15px 0 0; }
+
+.product-details-stock {
+  font-size: 15px;
+  margin: 0;
+  padding: 0; }
+
+.product-stock-low-tag {
+  color: #de2226; }
+
+.product-in-stock-tag {
+  color: #3CB371; }
+
+#image-display {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  flex-wrap: wrap; }
+  #image-display li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px auto;
+    width: 45%; }
+    #image-display li img {
+      background-color: white;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      max-height: 200px;
+      max-width: 200px; }
+    #image-display li a, #image-display li a:visited {
+      background-color: #F6EF88;
+      border-radius: 3px;
+      color: #000000;
+      display: flex;
+      justify-content: center;
+      padding: 8px 12px;
+      text-decoration: none;
+      transition: 250ms ease background-color; }
+    #image-display li a:hover {
+      background-color: #f4ec70; }
+
+/*# sourceMappingURL=styles.css.map */

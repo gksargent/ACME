@@ -1,0 +1,159 @@
+#product-display {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+
+  .product-link-container {
+
+  }
+
+  a, a:visited {
+    color: $black;
+    text-decoration: none;
+    width: 100%;
+
+  }
+
+  li {
+    overflow: hidden;
+    padding: 0 0 10px 0;
+    margin: 10px 10px 35px 10px;
+    max-height: 400px;
+    max-width: 200px;
+    min-width: 30%;
+    text-align: center;
+    transition: 250ms ease all;
+
+    .product-image-container {
+      display: flex;
+      height: 200px;
+      overflow: hidden;
+      padding: 15px;
+      width: 100%;
+
+      img {
+        align-self: center;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+        transition: 250ms ease-out all;
+      }
+    }
+
+    h2 {
+      font-size: 15px;
+      line-height: 17px;
+      font-family: $body-font;
+      font-weight: normal;
+    }
+
+    span {
+      font-size: 15px;
+    }
+  }
+
+  li:hover {
+    background-color: whitesmoke;
+  }
+
+  li:hover img {
+    transform: scale(1.03);
+  }
+
+  hr {
+    margin: 5px 0;
+  }
+}
+
+#product-details-container {
+  display: flex;
+}
+
+#product-details-content-left {
+  padding: 0 25px 0 0;
+  margin: 0;
+  max-width: 50%;
+
+  h2 {
+    font-size: 17px;
+  }
+
+}
+
+#product-details-content-right {
+  padding: 0;
+  margin: 0;
+  max-width: 50%;
+
+  .product-details-image {
+    width: 100%;
+  }
+
+}
+
+.product-details-price {
+  color: $red;
+  //display: inline-block;
+  font-size: 20px;
+  padding: 0;
+  margin: 0 15px 0 0;
+}
+
+.product-details-stock {
+  //display: inline-block;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+.product-stock-low-tag {
+  color: $red;
+}
+
+.product-in-stock-tag {
+  color: $green;
+}
+
+
+//This section is for the display of images in the upload image view
+#image-display {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  flex-wrap: wrap;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px auto;
+    width: 45%;
+
+    img {
+      background-color: white;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      max-height: 200px;
+      max-width: 200px;
+    }
+
+    a, a:visited {
+      background-color: $yellow;
+      border-radius: 3px;
+      color: $black;
+      display: flex;
+      justify-content: center;
+      padding: 8px 12px;
+      text-decoration: none;
+      transition: 250ms ease background-color;
+    }
+
+    a:hover {
+      background-color: darken($yellow, 5%);
+    }
+  }
+}

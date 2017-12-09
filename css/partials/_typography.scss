@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Stardos+Stencil');
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+
+$headings-font: 'Stardos Stencil', cursive;
+$body-font: 'Boogaloo', cursive;
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $body-font;
+}
