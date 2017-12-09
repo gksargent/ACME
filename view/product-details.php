@@ -16,6 +16,7 @@ $invVendor = $productInfo[invVendor];
 $invStyle = $productInfo[invStyle];
 $invId = $productInfo[invId];
 
+
 //Other variables and statements
 $directoryName = $type;
 $pageTitle = $invName . ' | Acme, Inc.';
@@ -37,6 +38,9 @@ $pageDescription = $invDescription;
   <?php if(isset($productDisplay)){ echo $productDisplay; } ?>
   <hr />
   <?php if(isset($thumbnailDisplay)){ echo $thumbnailDisplay; } ?>
+  <hr />
+  <h2>Reviews</h2>
+  <?php echo $reviewList ?>
 
 
 
