@@ -312,4 +312,25 @@ thead tr:hover {
     #image-display li a:hover {
       background-color: #f4ec70; }
 
+@media (max-width: 500px) {
+  header nav {
+    height: 90px; }
+
+  #product-display li {
+    max-width: none;
+    width: 100%; }
+
+  #product-details-container {
+    flex-direction: column;
+    flex-wrap: wrap; }
+
+  #product-details-content-left {
+    max-width: none;
+    order: 2; }
+
+  #product-details-content-right {
+    max-width: none;
+    order: 1;
+    width: 100%; } }
+
 /*# sourceMappingURL=styles.css.map */
