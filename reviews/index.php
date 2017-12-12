@@ -22,7 +22,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
 $categories = getCategories();
 
 //this is for the dynamic navigation
-$navList = dynamicNavigation(); 
+$navList = dynamicNavigation();
 
 //==============================================================================
 
@@ -56,7 +56,7 @@ switch ($action) {
 
     //Check and report the result
     if ($newReviewOutcome === 1){
-      header('location: /acme/reviews/index.php');
+      header('location: /acme/products/index.php');
       exit;
     } else {
       $message = '<p class="form-error">Oops, new review not created. Please try again.</p>';

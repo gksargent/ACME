@@ -312,6 +312,15 @@ thead tr:hover {
     #image-display li a:hover {
       background-color: #f4ec70; }
 
+#review-banner {
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 15px 0;
+  min-height: 50px;
+  padding: 0;
+  width: 100%; }
+
 @media (max-width: 500px) {
   header nav {
     height: 90px; }

@@ -208,6 +208,8 @@ switch ($action){
     } else {
       $productDisplay = buildProductInfoDisplay($productInfo);
       $thumbnailDisplay = buildThumbnailDisplay($productThumbnails);
+      $reviewsDisplay = buildReviewDisplay($reviews);
+
       include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
     }
     break;

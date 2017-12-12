@@ -12,7 +12,7 @@ $clientFirstname = $_SESSION['clientData']['clientFirstname'];
     if ($_SESSION['loggedin'] == FALSE) {
       echo '<a href="/acme/accounts/index.php?action=login" title="Manage your account here" class="account-link">My Account</a>';
     } else {
-      echo "<a href='/acme/accounts' title='Go to account management options' class='account-link'>Welcome $clientFirstname!</a> | <a href='/acme/accounts/index.php?action=logout' title='Logout of your ACME account and return to the home page.' class='logout-link'>Logout</a>";
+      echo "<a href='/acme/accounts' title='Go to account management options' class='account-link'>Welcome $clientFirstname!</a> | <a href='/acme/accounts/index.php?action=Logout' title='Logout of your ACME account and return to the home page.' class='logout-link'>Logout</a>";
     }
 
     ?>
