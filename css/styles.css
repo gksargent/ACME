@@ -149,6 +149,10 @@ footer {
 .centered-form {
   margin: 0 auto; }
 
+.stacked-form {
+  display: flex;
+  flex-direction: column; }
+
 .input-help-text {
   font-size: 14px;
   margin-bottom: 20px; }
@@ -330,6 +334,15 @@ thead tr:hover {
   #product-reviews-table .meta-text {
     font-size: 13px;
     color: #808080; }
+
+#your-product-reviews-table {
+  width: 100%; }
+  #your-product-reviews-table th {
+    width: 100%; }
+  #your-product-reviews-table .table-main-content-column {
+    width: 85%; }
+  #your-product-reviews-table tr {
+    display: flex; }
 
 @media (max-width: 500px) {
   header nav {

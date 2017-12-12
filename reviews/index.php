@@ -55,8 +55,17 @@ switch ($action) {
     $newReviewOutcome = newReview($reviewText, $invId, $clientId);
 
     //Check and report the result
-    if ($newReviewOutcome === 1){
-      header('location: /acme/reviews/index.php');
+    if ($newReviewOutcome === 1) {
+      $message = "<p class='success-message'>Review added!</p>";
+      $productInfo = getProductInfo($invId);
+      $productThumbnails = getAllProductThumbnails($invId);
+      $itemReviews = getItemReviews($invId);
+      $productDisplay = buildProductInfoDisplay($productInfo);
+      $thumbnailDisplay = buildThumbnailDisplay($productThumbnails);
+      $reviewsDisplay = buildReviewDisplay($itemReviews);
+
+      include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
+      //header('location: /acme/reviews/index.php');
     } else {
       $reviewFormMessage = '<p class="form-error">Oops, something wonky happened. Please try again.</p>';
       include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
@@ -70,11 +79,7 @@ switch ($action) {
     $reviewId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $reviewDetails = getReview($reviewId);
 
-    if (count($reviewDetails) < 1) {
-      $message = '<p class="form-error">No reviews found for this item.</p>';
-      include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/edit-review.php';
-      exit;
-      }
+    include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/edit-review.php';
     break;
 
 
@@ -149,15 +154,15 @@ switch ($action) {
     $reviews = getClientReviews($clientId);
 
     if (count($reviews) > 0) {
-      $reviewList = '<table>';
+      $reviewList = '<table id="your-product-reviews-table">';
       $reviewList .= '<thead>';
       $reviewList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
       $reviewList .= '</thead>';
-      $reviewList .= '</tbody>';
+      $reviewList .= '<tbody>';
       foreach ($reviews as $review) {
-        $reviewList .= "<tr><td>$review[reviewText]</td>";
-        $reviewList .= "<td><a href='/acme/reviews?action=deliver-edit-review&id=$review[reviewId] title='Edit this review'>Edit</a></td>";
-        $reviewList .="<td><a href='/acme/reviews?action=deliver-delete-review&id=$review[reviewId]' title='Delete this review.'</a></td></tr>";
+        $reviewList .= "<tr><td class='table-main-content-column'>$review[reviewText]</td>";
+        $reviewList .= "<td class='table-action-button-column'><a href='/acme/reviews?action=deliver-edit-review&id=$review[reviewId]' title='Edit this review'>Edit</a></td>";
+        $reviewList .="<td class='table-action-button-column'><a href='/acme/reviews?action=deliver-delete-review&id=$review[reviewId]' title='Delete this review.'>Delete</a></td></tr>";
       }
       $reviewList .= '</tbody></table>';
     } else {
@@ -166,6 +171,5 @@ switch ($action) {
 
     include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
     break;
-}
 }
  ?>

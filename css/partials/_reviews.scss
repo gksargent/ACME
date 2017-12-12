@@ -22,3 +22,21 @@
     color: $gray;
   }
 }
+
+#your-product-reviews-table {
+  width: 100%;
+
+  th {
+    width: 100%;
+  }
+
+  .table-main-content-column {
+    width: 85%;
+  }
+
+  tr {
+    display: flex;
+  }
+
+
+}

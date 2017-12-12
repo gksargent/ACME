@@ -9,6 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/connections.php';
 //this brings the models into scope
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/accounts-model.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/reviews-model.php';
 
 //this brings in all the functions into scope
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
@@ -231,9 +232,28 @@ switch ($action){
 
 
 
-    default: include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
-      exit;
-    break;
-}
+    default:
+      $clientId = $_SESSION['clientData']['clientId'];
+      $reviews = getClientReviews($clientId);
+
+      if (count($reviews) > 0) {
+        $reviewList = '<table id="your-product-reviews-table">';
+        $reviewList .= '<thead>';
+        $reviewList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+        $reviewList .= '</thead>';
+        $reviewList .= '<tbody>';
+        foreach ($reviews as $review) {
+          $reviewList .= "<tr><td class='table-main-content-column'>$review[reviewText]</td>";
+          $reviewList .= "<td class='table-action-button-column'><a href='/acme/reviews/index.php?action=deliver-edit-review&id=$review[reviewId]' title='Edit this review'>Edit</a></td>";
+          $reviewList .="<td class='table-action-button-column'><a href='/acme/reviews/index.php?action=deliver-delete-review&id=$review[reviewId]' title='Delete this review.'>Delete</a></td></tr>";
+        }
+        $reviewList .= '</tbody></table>';
+      } else {
+        $message = '<p class="error-message">No reviews found.</p>';
+      }
+
+      include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
+      break;
+  }
 
  ?>

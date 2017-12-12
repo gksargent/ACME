@@ -60,6 +60,11 @@
   margin: 0 auto;
 }
 
+.stacked-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .input-help-text {
   font-size: 14px;
   margin-bottom: 20px;

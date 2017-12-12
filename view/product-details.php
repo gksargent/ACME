@@ -34,17 +34,19 @@ $pageDescription = $invDescription;
 
 <main>
   <div id="review-banner">
-    <p>Take a look at the reviews at the bottom!</p>
+    <p>Take a look at the reviews at the <a href='#bottom'>bottom!</a></p>
   </div>
   <?php if(isset($message)){ echo $message; } ?>
   <?php if(isset($productDisplay)){ echo $productDisplay; } ?>
   <hr />
   <?php if(isset($thumbnailDisplay)){ echo $thumbnailDisplay; } ?>
   <hr />
+
   <?php
     if (isset($_SESSION['loggedin'])) {
       $first = substr($_SESSION['clientData']['clientFirstname'], 0, 1);
-      $screenName = $first . '' . $_SESSION['clientData']['clientLastname'];
+      $last = $_SESSION['clientData']['clientLastname'];
+      $screenName = $first . $last;
       $sessionClientDataClientId = $_SESSION['clientData']['clientId'];
 
       if (isset($reviewFormMessage)) {
@@ -56,16 +58,17 @@ $pageDescription = $invDescription;
       echo '<br>'."\n";
       echo '<textarea cols="50" id="reviewText" name="reviewText" placeholder="Leave a product review here" required rows="5"></textarea>'."\n";
       echo '<br>'."\n";
+      echo '<input class="button" name="submit" type="submit" value="Submit Review">'."\n";
       echo "<input type='hidden' name='clientId' value='$sessionClientDataClientId'>"."\n";
       echo "<input type='hidden' name='invId' value='$invId'>"."\n";
       echo '<input type="hidden" name="action" value="new-review">'."\n";
-      echo '<input class="button" name="submit" type="submit" value="Submit Review">'."\n";
       echo '</form>'."\n";
     } else {
       echo "<p><a href='/acme/accounts/index.php?action=login'>Login</a> to review this product."."\n";
     }
 
     echo '<br>';
+    echo '<a id="bottom"></a>';
     echo '<h2>Customer Reviews</h2>';
 
     if (count($itemReviews) > 0) {
