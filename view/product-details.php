@@ -41,40 +41,39 @@ $pageDescription = $invDescription;
   <hr />
   <?php if(isset($thumbnailDisplay)){ echo $thumbnailDisplay; } ?>
   <hr />
-  <h2>Customer Reviews</h2>
   <?php
     if (isset($_SESSION['loggedin'])) {
       $first = substr($_SESSION['clientData']['clientFirstname'], 0, 1);
       $screenName = $first . '' . $_SESSION['clientData']['clientLastname'];
+      $sessionClientDataClientId = $_SESSION['clientData']['clientId'];
 
-      echo '<h3>Review this product</h3>';
-
-      if (isset($message)) {
-        echo $message;
+      if (isset($reviewFormMessage)) {
+        echo $reviewFormMessage;
       }
 
-      echo '<form action="/acme/reviews/" method="post" id="review-form">';
-      echo "<label for='reviewText'>Logged in as $screenName</label>";
-      echo '<br>';
-      echo '<textarea cols="50" id="reviewText" name="reviewText" placeholder="Leave a product review here" required rows="5"></textarea>';
-      echo '<br>';
-      echo "<input type='hidden' name='clientId' value='$_SESSION'";
-      echo "['clientData']['clientId']";
-      echo '>';
-      echo '<input type="hidden" name="action" value="new-review">';
-      echo '<input class="button" type="submit" value="Submit Review">';
-      echo '</form>';
+      echo '<form action="/acme/reviews/index.php" method="post" id="review-form">'."\n";
+      echo "<label for='reviewText'>Review this product as $screenName</label>"."\n";
+      echo '<br>'."\n";
+      echo '<textarea cols="50" id="reviewText" name="reviewText" placeholder="Leave a product review here" required rows="5"></textarea>'."\n";
+      echo '<br>'."\n";
+      echo "<input type='hidden' name='clientId' value='$sessionClientDataClientId'>"."\n";
+      echo "<input type='hidden' name='invId' value='$invId'>"."\n";
+      echo '<input type="hidden" name="action" value="new-review">'."\n";
+      echo '<input class="button" name="submit" type="submit" value="Submit Review">'."\n";
+      echo '</form>'."\n";
     } else {
-      echo "<p><a href='/acme/accounts/index.php?action=login'>Login</a> to review this product.";
+      echo "<p><a href='/acme/accounts/index.php?action=login'>Login</a> to review this product."."\n";
     }
 
-    if (isset($reviewsDisplay)) {
+    echo '<br>';
+    echo '<h2>Customer Reviews</h2>';
+
+    if (count($itemReviews) > 0) {
       echo $reviewsDisplay;
+    } else {
+      echo '<p>This product has not been reviewed yet.</p>'."\n";
     }
 ?>
-
-
-
 
 
 

@@ -10,11 +10,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/connections.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/products-model.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/uploads-model.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/reviews-model.php';
 
 //this brings in all the functions into scope
 require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
-
-
 //=============================================================================
 
 //this runs the getCategories function from acme-model.php
@@ -203,12 +202,13 @@ switch ($action){
     $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $productInfo = getProductInfo($invId);
     $productThumbnails = getAllProductThumbnails($invId);
+    $itemReviews = getItemReviews($invId);
     if(count($productInfo)<1){
       $message = "<p class='form-error'>Oops, something wonky happened.<br />Product info could not be found.</p>";
     } else {
       $productDisplay = buildProductInfoDisplay($productInfo);
       $thumbnailDisplay = buildThumbnailDisplay($productThumbnails);
-      $reviewsDisplay = buildReviewDisplay($reviews);
+      $reviewsDisplay = buildReviewDisplay($itemReviews);
 
       include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
     }

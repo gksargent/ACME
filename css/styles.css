@@ -321,6 +321,16 @@ thead tr:hover {
   padding: 0;
   width: 100%; }
 
+#product-reviews-table {
+  list-style-type: none; }
+  #product-reviews-table li {
+    margin-left: -10px;
+    margin-bottom: 25px;
+    max-width: 400px; }
+  #product-reviews-table .meta-text {
+    font-size: 13px;
+    color: #808080; }
+
 @media (max-width: 500px) {
   header nav {
     height: 90px; }

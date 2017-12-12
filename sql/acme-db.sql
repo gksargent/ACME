@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 09, 2017 at 11:19 AM
+-- Generation Time: Dec 11, 2017 at 10:08 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -58,7 +58,8 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`clientId`, `clientFirstname`, `clientLastname`, `clientEmail`, `clientPassword`, `clientLevel`, `comments`) VALUES
 (1, 'Greg', 'Sargent', 'gksargent@gmail.com', '$2y$10$gIgvg2FTqlRDVkMKBXKXhOYne3W7fiN3A/ITSdrDLKeeS0CQgtF.G', '3', ''),
-(2, 'Test', 'User', 'test@test.com', '$2y$10$D399P5JBQgQ6wlNZ1h.30uKyFPp5tF0tAPN7dn./c6FKLa/8Bl5se', '1', '');
+(2, 'Test', 'User', 'test@test.com', '$2y$10$D399P5JBQgQ6wlNZ1h.30uKyFPp5tF0tAPN7dn./c6FKLa/8Bl5se', '1', ''),
+(3, 'Testing', 'usertesting', 'testing@test.com', '$2y$10$LaD/f6nuYh4nii24pk99Lec76NsBGMg2F9P4AGliyPaGwtQGfQs/e', '1', '');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,11 @@ INSERT INTO `images` (`imgId`, `invId`, `imgName`, `imgPath`, `imgDate`) VALUES
 (47, 7, 'koenigsegg-3.jpg', '/acme/images/products/koenigsegg-3.jpg', '2017-12-03 00:49:52'),
 (48, 7, 'koenigsegg-3-tn.jpg', '/acme/images/products/koenigsegg-3-tn.jpg', '2017-12-03 00:49:52'),
 (49, 7, 'koenigsegg-4.jpg', '/acme/images/products/koenigsegg-4.jpg', '2017-12-07 15:13:51'),
-(50, 7, 'koenigsegg-4-tn.jpg', '/acme/images/products/koenigsegg-4-tn.jpg', '2017-12-07 15:13:51');
+(50, 7, 'koenigsegg-4-tn.jpg', '/acme/images/products/koenigsegg-4-tn.jpg', '2017-12-07 15:13:51'),
+(51, 17, 'iphone-SE_portrait.png', '/acme/images/products/iphone-SE_portrait.png', '2017-12-12 02:02:36'),
+(52, 17, 'iphone-SE_portrait-tn.png', '/acme/images/products/iphone-SE_portrait-tn.png', '2017-12-12 02:02:36'),
+(53, 17, 'iphone-6s-plus-7-plus_landscape.png', '/acme/images/products/iphone-6s-plus-7-plus_landscape.png', '2017-12-12 02:05:59'),
+(54, 17, 'iphone-6s-plus-7-plus_landscape-tn.png', '/acme/images/products/iphone-6s-plus-7-plus_landscape-tn.png', '2017-12-12 02:05:59');
 
 -- --------------------------------------------------------
 
@@ -147,7 +152,7 @@ CREATE TABLE `inventory` (
 INSERT INTO `inventory` (`invId`, `invName`, `invDescription`, `invImage`, `invThumbnail`, `invPrice`, `invStock`, `invSize`, `invWeight`, `invLocation`, `categoryId`, `invVendor`, `invStyle`) VALUES
 (1, 'Acme Rocket', 'The Acme Rocket meets multiple purposes. This can be launched independently to deliver a payload or strapped on to help get you to where you want to be FAST!!! Really Fast! Launch stand is included.', '/acme/images/products/rocket.png', '/acme/images/products/rocket-tn.png', '132000.00', 5, 60, 90, 'Albuquerque, New Mexico', 4, 'Goddard', 'metal'),
 (2, 'Mortar', 'Our Mortar is very powerful. This cannon can launch a projectile or bomb 3 miles. Made of solid steel and mounted on cement or metal stands [not included].', '/acme/images/products/mortar.jpg', '/acme/images/products/mortar-tn.jpg', '1500.00', 26, 250, 750, 'San Jose', 1, 'Smith & Wesson', 'Metal'),
-(3, 'Catapult', 'Our best wooden catapult. Ideal for hurling objects for up to 1000 yards. Payloads of up to 300 lbs.', '/acme/images/products/catapult.png', '/acme/images/products/catapult-tn.png', '2500.00', 4, 1569, 400, 'Cedar Point, IO', 1, 'Wooden Creations', 'Wood'),
+(3, 'Catapult', 'Our best wooden catapult. Ideal for hurling objects for up to 1000 yards. Payloads of up to 300 lbs.', '/acme/images/products/catapult.png', '/acme/images/products/catapult-tn.png', '2501.00', 4, 1569, 400, 'Cedar Point, IO', 1, 'Wooden Creations', 'Wood'),
 (4, 'Female RoadRuner Cutout', 'This carbon fiber backed cutout of a female roadrunner is sure to catch the eye of any male roadrunner.', '/acme/images/products/roadrunner.jpg', '/acme/images/products/roadrunner-tn.jpg', '20.00', 500, 27, 2, 'San Jose', 5, 'Picture Perfect', 'Carbon Fiber'),
 (5, 'Giant Mouse Trap', 'Our big mouse trap. This trap is multifunctional. It can be used to catch dogs, mountain lions, road runners or even muskrats. Must be staked for larger varmints [stakes not included] and baited with approptiate bait [sold seperately].\r\n', '/acme/images/products/trap.jpg', '/acme/images/products/trap-tn.jpg', '20.00', 34, 470, 28, 'Cedar Point, IO', 5, 'Rodent Control', 'Wood'),
 (6, 'Instant Hole', 'Instant hole - Wonderful for creating the appearance of openings.', '/acme/images/products/hole.png', '/acme/images/products/hole-tn.png', '25.00', 269, 24, 2, 'San Jose', 3, 'Hidden Valley', 'Ether'),
@@ -160,7 +165,32 @@ INSERT INTO `inventory` (`invId`, `invName`, `invDescription`, `invImage`, `invT
 (13, 'Grand Piano', 'This upright grand piano is guaranteed to play well and smash anything beneath it if dropped from a height.', '/acme/images/products/piano.jpg', '/acme/images/products/piano-tn.jpg', '3500.00', 36, 500, 1200, 'Cedar Point, IA', 3, 'Wulitzer', 'Wood'),
 (14, 'Crash Helmet', 'This carbon fiber and plastic helmet is the ultimate in protection for your head. comes in assorted colors.', '/acme/images/products/helmet.png', '/acme/images/products/helmet-tn.png', '100.00', 25, 48, 9, 'San Jose', 3, 'Suzuki', 'Carbon Fiber'),
 (15, 'Nylon Rope', 'This nylon rope is ideal for all uses. Each rope is the highest quality nylon and comes in 100 foot lengths.', '/acme/images/products/rope.jpg', '/acme/images/products/rope-tn.jpg', '15.00', 200, 200, 6, 'San Jose', 3, 'Marina Sales', 'Nylon'),
-(16, 'Small Bomb', 'Bomb with a fuse - A little old fashioned, but highly effective. This bomb has the ability to devistate anything within 30 feet.', '/acme/images/products/bomb.png', '/acme/images/products/bomb-tn.png', '275.00', 58, 30, 12, 'San Jose', 2, 'Nobel Enterprises', 'Metal');
+(16, 'Small Bomb', 'Bomb with a fuse - A little old fashioned, but highly effective. This bomb has the ability to devistate anything within 30 feet.', '/acme/images/products/bomb.png', '/acme/images/products/bomb-tn.png', '275.00', 58, 30, 12, 'San Jose', 2, 'Nobel Enterprises', 'Metal'),
+(17, 'Test Product', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure', '/acme/images/products/iphone-SE_portrait.png', '/acme/images/products/iphone-SE_portrait-tn.png', '25.99', 44, 12, 12, 'Dallas, TX', 1, 'Yo Mamma', 'Iron');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `reviewId` int(10) UNSIGNED NOT NULL,
+  `reviewText` text CHARACTER SET latin1 NOT NULL,
+  `reviewDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `invId` int(10) UNSIGNED NOT NULL,
+  `clientId` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`reviewId`, `reviewText`, `reviewDate`, `invId`, `clientId`) VALUES
+(3, 'test review', '2017-12-11 04:24:59', 1, 1),
+(4, 'test review here', '2017-12-12 00:47:56', 2, 1),
+(5, 'another test review', '2017-12-12 00:48:21', 2, 1),
+(6, 'test review here', '2017-12-12 00:48:33', 11, 1);
 
 --
 -- Indexes for dumped tables
@@ -193,6 +223,14 @@ ALTER TABLE `inventory`
   ADD KEY `categoryId` (`categoryId`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`reviewId`),
+  ADD KEY `FK_reviews_clients` (`clientId`),
+  ADD KEY `FK_reviews_inventory` (`invId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -205,17 +243,22 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `clientId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imgId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `imgId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `invId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `invId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `reviewId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
@@ -231,3 +274,10 @@ ALTER TABLE `images`
 --
 ALTER TABLE `inventory`
   ADD CONSTRAINT `FK_inv_categories` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`categoryId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `FK_reviews_clients` FOREIGN KEY (`clientId`) REFERENCES `clients` (`clientId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_reviews_inventory` FOREIGN KEY (`invId`) REFERENCES `inventory` (`invId`) ON DELETE CASCADE ON UPDATE CASCADE;

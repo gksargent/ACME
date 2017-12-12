@@ -7,3 +7,18 @@
   padding: 0;
   width: 100%
 }
+
+#product-reviews-table {
+  list-style-type: none;
+
+  li {
+    margin-left: -10px;
+    margin-bottom: 25px;
+    max-width: 400px;
+  }
+
+  .meta-text {
+    font-size: 13px;
+    color: $gray;
+  }
+}

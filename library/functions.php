@@ -350,17 +350,16 @@ function buildThumbnailDisplay($productThumbnails) {
 //======================== wrap reviews in html ==============================
 //============================================================================
 
-function buildReviewDisplay($reviews) {
+function buildReviewDisplay($itemReviews) {
   $rd = '<ul id="product-reviews-table">';
-  foreach ($reviews as $review) {
-    $date = date("F jS, Y", strtotime($review['reviewDate']));
+  foreach ($itemReviews as $review) {
+    $date = date("F jS, Y", strtotime($review[reviewDate]));
     $firstName = substr($review['clientFirstname'], 0, 1);
     $lastName = $review['clientLastname'];
     $screenName = $firstName . $lastName;
-    $rd .= '<li><span>';
-    $rd .= "$screenName said: ";
-    $rd .= "$review[reviewText] on $date";
-    $rd .= '</span></li>';
+    $reviewText = $review[reviewText];
+    $rd .= "<li class='review-list-item'><span class='meta-text'><strong>$screenName</strong> on $date<br></span>";
+    $rd .= "<span class='review-list-item-text'>$reviewText</span></li>";
   }
   $rd .= "</ul>";
   return $rd;

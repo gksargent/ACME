@@ -16,7 +16,7 @@ functions needed:
 //============================== add new review ================================
 //==============================================================================
 
-function newReview($reviewText, $invId, $clientId){
+function newReview($reviewText, $invId, $clientId) {
   $db = acmeConnect();
   $sql = 'INSERT INTO reviews (reviewText, invId, clientId) VALUES (:reviewText, :invId, :clientId)';
   $stmt = $db->prepare($sql);
@@ -33,6 +33,51 @@ function newReview($reviewText, $invId, $clientId){
 
 
 
+//==============================================================================
+//======================== update a specific review ============================
+//==============================================================================
+
+function updateReview($reviewText, $clientId, $invId, $reviewId) {
+  $db = acmeConnect();
+  $sql = 'UPDATE reviews SET reviewText = :reviewText, clientId = :clientId, invId = :invId WHERE reviewId = :reviewId';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
+  $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+  $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+  $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
+  $stmt->execute();
+
+  $rowsChanged = $stmt->rowCount();
+  $stmt->closeCursor();
+
+  return $rowsChanged;
+}
+
+
+
+
+
+//==============================================================================
+//======================== delete a specific review ============================
+//==============================================================================
+
+function deleteReview() {
+  $db = acmeConnect();
+  $sql = 'DELETE * FROM reviews WHERE reviewId = :reviewId';
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
+  $stmt->execute();
+
+  $rowsChanged = $stmt->rowCount();
+  $stmt->closeCursor();
+
+  return $rowsChanged;
+}
+
+
+
+
+
 
 //==============================================================================
 //================ get reviews for a specific inventory item ===================
@@ -40,15 +85,15 @@ function newReview($reviewText, $invId, $clientId){
 
 function getItemReviews($invId) {
   $db = acmeConnect();
-  $sql = 'SELECT r.*, c.* FROM reviews r INNER JOIN clients c ON r.clientId = c.clientId WHERE invId = :invId ORDER BY reviewDate DESC';
+  $sql = 'SELECT reviews.*, clients.* FROM reviews INNER JOIN clients ON reviews.clientId = clients.clientId WHERE invId = :invId ORDER BY reviewDate DESC';
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
   $stmt->execute();
 
-  $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $itemReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
 
-  return $reviews;
+  return $itemReviews;
 }
 
 
@@ -96,44 +141,5 @@ function getReview($reviewId) {
 
 
 
-//==============================================================================
-//======================== update a specific review ============================
-//==============================================================================
 
-function updateReview($reviewText, $clientId, $invId, $reviewId) {
-  $db = acmeConnect();
-  $sql = 'UPDATE reviews SET reviewText = :reviewText, clientId = :clientId, invId = :invId WHERE reviewId = :reviewId';
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
-  $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
-  $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
-  $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
-  $stmt->execute();
-
-  $rowsChanged = $stmt->rowCount();
-  $stmt->closeCursor();
-
-  return $rowsChanged;
-}
-
-
-
-
-
-//==============================================================================
-//======================== delete a specific review ============================
-//==============================================================================
-
-function deleteReview(); {
-  $db = acmeConnect();
-  $sql = 'DELETE * FROM reviews WHERE reviewId = :reviewId';
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
-  $stmt->execute();
-
-  $rowsChanged = $stmt->rowCount();
-  $stmt->closeCursor();
-
-  return $rowsChanged;
-}
 ?>

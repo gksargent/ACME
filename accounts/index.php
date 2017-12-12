@@ -40,6 +40,9 @@ switch ($action){
     if ($action = 'login'){
       include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
     }
+
+    //Delete cookie at login
+    setcookie('firstname', '', strtotime('-1 year'), '/');
     break;
 
 
@@ -57,6 +60,8 @@ switch ($action){
   case 'logout':
     session_destroy();
     header('Location: /acme/');
+
+    setcookie('firstname', '', strtotime('-1 year'), '/');
     exit;
     break;
 

@@ -56,12 +56,10 @@ switch ($action) {
 
     //Check and report the result
     if ($newReviewOutcome === 1){
-      header('location: /acme/products/index.php');
-      exit;
+      header('location: /acme/reviews/index.php');
     } else {
-      $message = '<p class="form-error">Oops, new review not created. Please try again.</p>';
+      $reviewFormMessage = '<p class="form-error">Oops, something wonky happened. Please try again.</p>';
       include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-details.php';
-      exit;
     }
     break;
 
