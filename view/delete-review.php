@@ -29,7 +29,7 @@ $reviewDetails = getReview($reviewId);
 
 
   <h1>Delete Review</h1>
-  <p>Are you sure? There action cannot be undone!</p>
+  <p>Are you sure? This action cannot be undone!</p>
 
   <p><a href="/acme/accounts/">&#8592; Back</a></p>
   <form method="post" action="/acme/reviews/index.php" class="stacked-form">

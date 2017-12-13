@@ -142,6 +142,7 @@ switch ($action){
     $_SESSION['loggedin'] = TRUE;
     array_pop($clientData);
     $_SESSION['clientData'] = $clientData;
+    setcookie('firstname', '', strtotime('-1 year'), '/');
     include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
     exit;
     break;

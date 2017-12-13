@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 11, 2017 at 10:08 PM
+-- Generation Time: Dec 13, 2017 at 12:21 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -59,7 +59,10 @@ CREATE TABLE `clients` (
 INSERT INTO `clients` (`clientId`, `clientFirstname`, `clientLastname`, `clientEmail`, `clientPassword`, `clientLevel`, `comments`) VALUES
 (1, 'Greg', 'Sargent', 'gksargent@gmail.com', '$2y$10$gIgvg2FTqlRDVkMKBXKXhOYne3W7fiN3A/ITSdrDLKeeS0CQgtF.G', '3', ''),
 (2, 'Test', 'User', 'test@test.com', '$2y$10$D399P5JBQgQ6wlNZ1h.30uKyFPp5tF0tAPN7dn./c6FKLa/8Bl5se', '1', ''),
-(3, 'Testing', 'usertesting', 'testing@test.com', '$2y$10$LaD/f6nuYh4nii24pk99Lec76NsBGMg2F9P4AGliyPaGwtQGfQs/e', '1', '');
+(3, 'Testing', 'usertesting', 'testing@test.com', '$2y$10$LaD/f6nuYh4nii24pk99Lec76NsBGMg2F9P4AGliyPaGwtQGfQs/e', '1', ''),
+(4, 'Jarom', 'Sargent', 'jsargent@gmail.com', '$2y$10$/VH.F3L55B1WVFQ7iLOiUumWUDbnwFNcwTp1Q5UiU7SH4vfhr2kwC', '1', ''),
+(5, 'Priya', 'Sargent', 'psargent@gmail.com', '$2y$10$jI87D.Vu9Pt4cXbGXcqNMe4ebI86uUu26Xx2SDYLQtqo4mDt8XSqi', '1', ''),
+(6, 'Celeste', 'Sargent', 'csargent@gmail.com', '$2y$10$Uhtex6bBifMhBSKsFS0Ac.VK47T01oE4GSzCAHMBENXuopRafnoQC', '1', '');
 
 -- --------------------------------------------------------
 
@@ -150,11 +153,11 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`invId`, `invName`, `invDescription`, `invImage`, `invThumbnail`, `invPrice`, `invStock`, `invSize`, `invWeight`, `invLocation`, `categoryId`, `invVendor`, `invStyle`) VALUES
-(1, 'Acme Rocket', 'The Acme Rocket meets multiple purposes. This can be launched independently to deliver a payload or strapped on to help get you to where you want to be FAST!!! Really Fast! Launch stand is included.', '/acme/images/products/rocket.png', '/acme/images/products/rocket-tn.png', '132000.00', 5, 60, 90, 'Albuquerque, New Mexico', 4, 'Goddard', 'metal'),
+(1, 'Acme Rocket', 'The Acme Rocket meets multiple purposes. This can be launched independently to deliver a payload or strapped on to help get you to where you want to be FAST!!! Really Fast! Launch stand is included.', '/acme/images/products/rocket.png', '/acme/images/products/rocket-tn.png', '132000.00', 5, 60, 90, 'Albuquerque, New Mexico', 4, 'Goddard', 'metalish'),
 (2, 'Mortar', 'Our Mortar is very powerful. This cannon can launch a projectile or bomb 3 miles. Made of solid steel and mounted on cement or metal stands [not included].', '/acme/images/products/mortar.jpg', '/acme/images/products/mortar-tn.jpg', '1500.00', 26, 250, 750, 'San Jose', 1, 'Smith & Wesson', 'Metal'),
 (3, 'Catapult', 'Our best wooden catapult. Ideal for hurling objects for up to 1000 yards. Payloads of up to 300 lbs.', '/acme/images/products/catapult.png', '/acme/images/products/catapult-tn.png', '2501.00', 4, 1569, 400, 'Cedar Point, IO', 1, 'Wooden Creations', 'Wood'),
 (4, 'Female RoadRuner Cutout', 'This carbon fiber backed cutout of a female roadrunner is sure to catch the eye of any male roadrunner.', '/acme/images/products/roadrunner.jpg', '/acme/images/products/roadrunner-tn.jpg', '20.00', 500, 27, 2, 'San Jose', 5, 'Picture Perfect', 'Carbon Fiber'),
-(5, 'Giant Mouse Trap', 'Our big mouse trap. This trap is multifunctional. It can be used to catch dogs, mountain lions, road runners or even muskrats. Must be staked for larger varmints [stakes not included] and baited with approptiate bait [sold seperately].\r\n', '/acme/images/products/trap.jpg', '/acme/images/products/trap-tn.jpg', '20.00', 34, 470, 28, 'Cedar Point, IO', 5, 'Rodent Control', 'Wood'),
+(5, 'Giant Mouse Trap', 'Our big mouse trap. This trap is multifunctional. It can be used to catch dogs, mountain lions, road runners or even muskrats. Must be staked for larger varmints [stakes not included] and baited with appropriate bait [sold separately]\r\n', '/acme/images/products/trap.jpg', '/acme/images/products/trap-tn.jpg', '20.00', 34, 470, 28, 'Cedar Point, IO', 5, 'Rodent Control', 'Wood'),
 (6, 'Instant Hole', 'Instant hole - Wonderful for creating the appearance of openings.', '/acme/images/products/hole.png', '/acme/images/products/hole-tn.png', '25.00', 269, 24, 2, 'San Jose', 3, 'Hidden Valley', 'Ether'),
 (7, 'Koenigsegg CCX Car', 'This high performance car is sure to get you where you are going fast. It holds the production car land speed record at an amazing 250mph.', '/acme/images/products/koenigsegg.jpg', '/acme/images/products/koenigsegg-tn.jpg', '99999999.99', 1, 25000, 3000, 'Stockholm, Sweden', 3, 'Koenigsegg', 'Metal'),
 (8, 'Anvil', '50 lb. Anvil - perfect for any task requireing lots of weight. Made of solid, tempered steel.', '/acme/images/products/anvil.png', '/acme/images/products/anvil-tn.png', '150.00', 15, 80, 50, 'San Jose', 5, 'Steel Made', 'Metal'),
@@ -187,10 +190,20 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`reviewId`, `reviewText`, `reviewDate`, `invId`, `clientId`) VALUES
-(3, 'test review', '2017-12-11 04:24:59', 1, 1),
-(4, 'test review here', '2017-12-12 00:47:56', 2, 1),
-(5, 'another test review', '2017-12-12 00:48:21', 2, 1),
-(6, 'test review here', '2017-12-12 00:48:33', 11, 1);
+(7, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud', '2017-12-12 06:30:28', 11, 2),
+(12, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2017-12-12 15:28:18', 2, 2),
+(13, 'test', '2017-12-12 15:37:24', 3, 2),
+(14, 'test', '2017-12-12 15:40:11', 2, 2),
+(15, 'testing', '2017-12-12 15:40:21', 2, 2),
+(16, 'fjasdfjasdfa', '2017-12-12 15:40:51', 2, 2),
+(17, 'cvbnvcbn', '2017-12-12 15:43:23', 2, 2),
+(18, 'wrywtuy', '2017-12-12 15:44:51', 2, 2),
+(19, 'wrywtuy', '2017-12-12 15:46:26', 2, 2),
+(20, 'wrywtuy', '2017-12-12 15:46:34', 2, 2),
+(21, 'wrywtuy', '2017-12-12 15:49:53', 2, 2),
+(22, 'test test test', '2017-12-12 15:50:20', 3, 2),
+(26, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim', '2017-12-13 05:58:20', 7, 1),
+(27, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim', '2017-12-13 05:59:49', 7, 1);
 
 --
 -- Indexes for dumped tables
@@ -243,7 +256,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `clientId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `clientId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `images`
 --
@@ -258,7 +271,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `reviewId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `reviewId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- Constraints for dumped tables
 --
