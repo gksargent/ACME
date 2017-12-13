@@ -49,9 +49,7 @@ $message = $_SESSION['message'];
   <hr>
   <h2>Your product reviews</h2>
   <?php
-    if (isset($message)) {
-      echo $message;
-    } if (isset($reviewList)) {
+    if (isset($reviewList)) {
       echo $reviewList;
     }
   ?>

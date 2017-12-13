@@ -6,17 +6,11 @@ $directoryName = 'admin';
 $pageTitle = "Admin Tools | Acme, Inc";
 $pageDescription = "Update ACME products here.";
 $clientLevel = $_SESSION['clientData']['clientLevel'];
-$reviewText = $reviewDetails['reviewText'];
 
 if ($_SESSION['clientData']['clientLevel'] < 1) {
  header('location: /acme/');
  exit;
 }
-
-$reviewDetails = getReview($reviewId);
-
-var_dump($reviewDetails);
-exit;
 ?>
 
 <!DOCTYPE html>
@@ -31,34 +25,39 @@ exit;
 <main>
 
 
-  <h1>Update Review</h1>
-
+  <h1>Delete Review</h1>
+  <h3>Are you sure?</h3>
+  <p>You cannot undo this action.</p>
   <p><a href="/acme/accounts/">&#8592; Back</a></p>
+
   <form method="post" action="/acme/reviews/index.php" class="stacked-form">
     <label for="reviewText">Review Content</label>
     <textarea cols="50"
               id="reviewText"
               name="reviewText"
-              required
-              rows="5"><?php if(isset($reviewText)){echo $reviewText;} ?></textarea>
+              readonly
+              rows="5"><?php echo $reviewInfo['reviewText']; ?></textarea>
   <br>
-  <input class="button"
-         id="formButton"
-         name="submit"
-         type="submit"
-         value="Save Edits">
+
   <input name="action"
          type="hidden"
-         value="process-edit-review">
+         value="process-delete-review">
   <input name="reviewId"
          type="hidden"
          value="<?php if (isset($reviewId)) { echo $reviewId;} ?>">
-  <input name="clientId"
+  <input id="clientId"
+         name="clientId"
          type="hidden"
          value="<?php if (isset($clientId)) { echo $clientId;} ?>">
-  <input name="invId"
+  <input id="invId"
+         name="invId"
          type="hidden"
-         value=<?php echo "$reviewDetails[invId]" ?>>
+         value=<?php echo $invId ?>>
+   <input class="button"
+          id="formButton"
+          name="submit"
+          type="submit"
+          value="Delete Review">
 </form>
 
 </main>

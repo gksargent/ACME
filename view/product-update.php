@@ -57,7 +57,7 @@ $categoryList .='</select>';
 
   <!-- message handling -->
   <?php if (isset($message)) {echo $message;} ?>
-  <form method="post" action="/acme/products/index.php/" class="stacked-form">
+  <form method="post" action="/acme/products/index.php" class="stacked-form">
     <label>Category</label>
     <?php echo $categoryList; ?>
     <label for="invName">Product name</label>
