@@ -50,7 +50,7 @@ $message = $_SESSION['message'];
   <?php
     if (isset($reviewList)) {
       echo $reviewList;
-    }
+    } else {echo "You haven't reviewed any products yet. When you do, they'll show up right here.";}
   ?>
 
 

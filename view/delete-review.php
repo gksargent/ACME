@@ -29,6 +29,7 @@ $reviewDetails = getReview($reviewId);
 
 
   <h1>Delete Review</h1>
+  <p>Are you sure? There action cannot be undone!</p>
 
   <p><a href="/acme/accounts/">&#8592; Back</a></p>
   <form method="post" action="/acme/reviews/index.php" class="stacked-form">
@@ -37,7 +38,7 @@ $reviewDetails = getReview($reviewId);
               id="reviewText"
               name="reviewText"
               disabled
-              rows="5"><?php if(isset($reviewText)){echo $reviewText;} ?></textarea>
+              rows="5"><?php if(isset($reviewText)){echo $reviewText;} else {echo $reviewDetails[reviewText];} ?></textarea>
   <br>
   <input class="button"
          id="formButton"
