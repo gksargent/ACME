@@ -11,6 +11,9 @@ if ($_SESSION['clientData']['clientLevel'] < 1) {
  header('location: /acme/');
  exit;
 }
+
+
+$reviewDetails = getReview($reviewId);
 ?>
 
 <!DOCTYPE html>
@@ -26,38 +29,33 @@ if ($_SESSION['clientData']['clientLevel'] < 1) {
 
 
   <h1>Delete Review</h1>
-  <h3>Are you sure?</h3>
-  <p>You cannot undo this action.</p>
-  <p><a href="/acme/accounts/">&#8592; Back</a></p>
 
+  <p><a href="/acme/accounts/">&#8592; Back</a></p>
   <form method="post" action="/acme/reviews/index.php" class="stacked-form">
     <label for="reviewText">Review Content</label>
     <textarea cols="50"
               id="reviewText"
               name="reviewText"
-              readonly
-              rows="5"><?php echo $reviewInfo['reviewText']; ?></textarea>
+              disabled
+              rows="5"><?php if(isset($reviewText)){echo $reviewText;} ?></textarea>
   <br>
-
-  <input name="action"
-         type="hidden"
-         value="process-delete-review">
-  <input name="reviewId"
-         type="hidden"
-         value="<?php if (isset($reviewId)) { echo $reviewId;} ?>">
-  <input id="clientId"
-         name="clientId"
-         type="hidden"
-         value="<?php if (isset($clientId)) { echo $clientId;} ?>">
-  <input id="invId"
-         name="invId"
-         type="hidden"
-         value=<?php echo $invId ?>>
-   <input class="button"
-          id="formButton"
-          name="submit"
-          type="submit"
-          value="Delete Review">
+  <input class="button"
+         id="formButton"
+         name="submit"
+         type="submit"
+         value="Delete review">
+   <input name="action"
+          type="hidden"
+          value="process-delete-review">
+   <input name="reviewId"
+          type="hidden"
+          value="<?php if (isset($reviewId)) { echo $reviewId;} ?>">
+   <input name="clientId"
+          type="hidden"
+          value="<?php if (isset($clientId)) { echo $clientId;} ?>">
+   <input name="invId"
+          type="hidden"
+          value=<?php echo "$reviewDetails[invId]" ?>>
 </form>
 
 </main>

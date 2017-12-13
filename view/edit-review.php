@@ -15,8 +15,6 @@ if ($_SESSION['clientData']['clientLevel'] < 1) {
 
 $reviewDetails = getReview($reviewId);
 
-var_dump($reviewDetails);
-exit;
 ?>
 
 <!DOCTYPE html>

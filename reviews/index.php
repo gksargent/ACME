@@ -115,9 +115,10 @@ switch ($action) {
 
   //============================================================================
   case 'deliver-delete-review':
-    $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+    $reviewId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $reviewInfo = getReview($reviewId);
     $reviewText = $itemReviews['reviewText'];
+
 
     if (count($reviewInfo) < 1) {
       $message = "<p class='form-error'>No review found</p>";
@@ -133,9 +134,9 @@ switch ($action) {
   case 'process-delete-review':
     $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
 
-    $deleteReviewResult = deleteReview($reviewId);
+    $deleteResult = deleteReview($reviewId);
 
-    if($deleteReviewResult) {
+    if($deleteResult) {
       $message = "<p class='success-message'>Review deleted!</p>";
       $_SESSION['message'] = $message;
       header ('location: /acme/reviews/');

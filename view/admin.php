@@ -20,7 +20,6 @@ $directoryName = 'accounts';
 $pageTitle = 'My ACME Account';
 $pageDescription = "Manage your account with ACME.";
 $message = $_SESSION['message'];
-
 ?>
 
 <!DOCTYPE html>
